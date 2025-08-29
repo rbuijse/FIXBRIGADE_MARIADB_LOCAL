@@ -1,0 +1,14 @@
+select 
+GEMEENTE
+, HUISHOUDENS_FIXED
+, concat(substr(PERIODE,6,2),' ',substr(PERIODE,1,4)) as PERIODE
+, format(0.41025641*HUISHOUDENS_FIXED,0,'de_DE') as CO2
+, format(20*HUISHOUDENS_FIXED,0,'de_DE') as BOMEN
+, format(166*HUISHOUDENS_FIXED,0,'de_DE') as GAS
+, format(407*HUISHOUDENS_FIXED,0,'de_DE') as KWH
+, format(0.461538462*HUISHOUDENS_FIXED,0,'de_DE') as TV
+, format(830*HUISHOUDENS_FIXED,0,'de_DE') as DOUCHE
+, format(330*HUISHOUDENS_FIXED,0,'de_DE') as BESPAAR
+from FIXDB.HUISHOUDENS_GEMEENTE_PERIODE
+where periode='2025_Q2'
+order by gemeente;
