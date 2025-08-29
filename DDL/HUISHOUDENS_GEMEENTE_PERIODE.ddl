@@ -10,7 +10,7 @@ select
     `vq1`.`BETAALDE_WERKNEMERS` AS `betaalde_werknemers`,
     `vq1`.`VRIJWILLIGERS` AS `vrijwilligers`
 from
-    `VRAGENLIJST_2025_Q1` `vq1`
+    `VRAGENLIJST_2025_Q2` `vq1`
 union
 select
     '2025_Q1' AS `PERIODE`,
@@ -20,7 +20,7 @@ select
     `vq2`.`BETAALDE_WERKNEMERS` AS `betaalde_werknemers`,
     `vq2`.`VRIJWILLIGERS` AS `vrijwilligers`
 from
-    `VRAGENLIJST_2025_Q2` `vq2`
+    `VRAGENLIJST_2025_Q1` `vq2`
 union
 select
     '2024_Q4' AS `PERIODE`,
