@@ -1,0 +1,11 @@
+-- FIXDB.QUOTES_VOOR_SLIDES source
+
+CREATE OR REPLACE
+ALGORITHM = UNDEFINED VIEW `QUOTES_VOOR_SLIDES` AS
+select GEMEENTE, QUOTE_VAN, QUOTE from (
+select GEMEENTE, QUOTE_VAN, QUOTE 
+, rank() over (partition by GEMEENTE order by PERIODE) as rnk
+from FIXDB.QUOTES
+where GESCHIKT_VOOR_SLIDE=1 and NO=1 
+) A where rnk=1
+order by GEMEENTE
